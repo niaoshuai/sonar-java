@@ -47,9 +47,9 @@ import org.sonar.java.checks.regex.AnchorPrecedenceCheck;
 import org.sonar.java.checks.regex.CanonEqFlagInRegexCheck;
 import org.sonar.java.checks.regex.DuplicatesInCharacterClassCheck;
 import org.sonar.java.checks.regex.EmptyLineRegexCheck;
+import org.sonar.java.checks.regex.EmptyStringRepetitionCheck;
 import org.sonar.java.checks.regex.GraphemeClustersInClassesCheck;
 import org.sonar.java.checks.regex.ImpossibleRegexCheck;
-import org.sonar.java.checks.regex.EmptyStringRepetitionCheck;
 import org.sonar.java.checks.regex.InvalidRegexCheck;
 import org.sonar.java.checks.regex.RedosCheck;
 import org.sonar.java.checks.regex.RegexComplexityCheck;
@@ -154,6 +154,7 @@ import org.sonar.java.checks.tests.JunitNestedAnnotationCheck;
 import org.sonar.java.checks.tests.NoTestInTestClassCheck;
 import org.sonar.java.checks.tests.OneExpectedCheckedExceptionCheck;
 import org.sonar.java.checks.tests.OneExpectedRuntimeExceptionCheck;
+import org.sonar.java.checks.tests.ParameterizedTestCheck;
 import org.sonar.java.checks.tests.TestAnnotationWithExpectedExceptionCheck;
 import org.sonar.java.checks.tests.ThreadSleepInTestsCheck;
 import org.sonar.java.checks.unused.UnusedLabelCheck;
@@ -806,6 +807,7 @@ public final class CheckList {
       NoTestInTestClassCheck.class,
       OneExpectedCheckedExceptionCheck.class,
       OneExpectedRuntimeExceptionCheck.class,
+      ParameterizedTestCheck.class,
       TestAnnotationWithExpectedExceptionCheck.class,
       ThreadSleepInTestsCheck.class,
       UnusedTestRuleCheck.class);
