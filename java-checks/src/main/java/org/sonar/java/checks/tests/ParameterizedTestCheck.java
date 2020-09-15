@@ -50,7 +50,7 @@ public class ParameterizedTestCheck extends IssuableSubscriptionVisitor {
     "org.testng.annotations.Test"));
 
   private static final int MIN_SIMILAR_METHODS = 3;
-  private static final int MIN_NUMBER_LINES = 1;
+  private static final int MIN_NUMBER_LINES = 3;
   private static final int MAX_NUMBER_PARAMETER = 3;
 
   @Override

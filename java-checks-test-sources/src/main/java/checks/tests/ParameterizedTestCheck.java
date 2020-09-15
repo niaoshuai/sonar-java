@@ -14,17 +14,23 @@ import static org.junit.Assert.assertNotNull;
 public class ParameterizedTestCheck {
 
   @Test
-  void testSum11() {  // Noncompliant [[sc=8;ec=17;secondary=22,27]] {{Replace these tests with a single Parameterized test.}}
+  void testSum11() {  // Noncompliant [[sc=8;ec=17;secondary=24,31]] {{Replace these tests with a single Parameterized test.}}
+    setup();
+    setup();
     assertEquals(Integer.sum(1, 1), 2);
   }
 
   @Test
   void testSum12() {  // Similar test
+    setup();
+    setup();
     assertEquals(Integer.sum(1, 2), 3);
   }
 
   @Test
   void testSum22() {  // Similar test
+    setup();
+    setup();
     assertEquals(Integer.sum(2, 2), 4);
   }
 
@@ -42,71 +48,96 @@ public class ParameterizedTestCheck {
   // Only consider ints,shorts,bytes,longs,floats,doubles,chars,strings,boolean. Types does not need to be the same
   // ints
   @Test
-  void testInt1() {  // Noncompliant [[secondary=49,54,59,64,69,74,79,84,89,93,98]]
+  void testInt1() {  // Noncompliant [[secondary=57,64,71,78,85,99,92,106,113,119,126]]
+    setup();
+    setup();
     assertEquals(getObject(1), 1);
   }
   @Test
   void testInt2() {
+    setup();
+    setup();
     assertEquals(getObject(2), 2);
   }
   // shorts
   @Test
   void testShort1() {
+    setup();
+    setup();
     assertEquals(getObject((short) 1), 1);
   }
   // bytes
   @Test
   void testByte1() {
+    setup();
+    setup();
     assertEquals(getObject((byte) 1), 1);
   }
   // longs
   @Test
   void testLong1() {
+    setup();
+    setup();
     assertEquals(getObject(1L), 1);
   }
   // floats
   @Test
   void testFloat1() {
+    setup();
+    setup();
     assertEquals(getObject((float) 0.1), 0.1);
   }
   // doubles
   @Test
   void testDouble1() {
+    setup();
+    setup();
     assertEquals(getObject(0.1), 0.1);
   }
   // chars
   @Test
   void testChar1() {
+    setup();
+    setup();
     assertEquals(getObject('1'), '1');
   }
   // strings
   @Test
   void testString1() {
+    setup();
+    setup();
     assertEquals(getObject("1"), "1");
   }
   // booleans
   @Test
   void testClass1() {
+    setup();
+    setup();
     assertEquals(getObject(true), true);
   }
   @Test
   void testClass2() {
+    setup();
+    setup();
     assertEquals(getObject(false), false);
   }
   // null
   @Test
   void testNull() {
+    setup();
+    setup();
     assertEquals(getObject(null), null);
   }
 
   @Test
   void testCast() { // Not a secondary for any issue
+    setup();
     int i = 3;
     assertEquals(getObject((byte) i), 3);
   }
 
   @Test
-  void testComplex1() { // Noncompliant [[secondary=118,127]]
+  void testComplex1() { // Noncompliant [[secondary=149,158]]
     Object o = getObject(1);
     assertNotNull(o);
     String s = o.toString();
@@ -216,6 +247,8 @@ public class ParameterizedTestCheck {
   Object getObject(Object o) {
     return o;
   }
+
+  void setup() {}
 
 }
 
