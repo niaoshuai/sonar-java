@@ -33,4 +33,12 @@ class RandomizedTestDataCheckTest {
       .withCheck(new RandomizedTestDataCheck())
       .verifyIssues();
   }
+
+  @Test
+  void testNoIssues() {
+    JavaCheckVerifier.newVerifier()
+      .onFile(testSourcesPath("checks/NonRandomizedTestDataCheck.java"))
+      .withCheck(new RandomizedTestDataCheck())
+      .verifyNoIssues();
+  }
 }

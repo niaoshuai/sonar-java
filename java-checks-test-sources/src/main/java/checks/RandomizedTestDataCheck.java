@@ -8,16 +8,19 @@ public class RandomizedTestDataCheck {
 
   @Test
   public void randomizedTest() {
-    int userAge = new Random().nextInt(42);  // Noncompliant[[sc=19;ec=31;secondary=11,22,24,26,28,30]]{{Replace randomly generated values with a fixed ones.}}
-    UUID userID = UUID.randomUUID(); // Noncompliant[[sc=19;ec=36;secondary=12,23,25,27,29,31]]{{Replace randomly generated values with a fixed ones.}}
+    int userAge = new Random().nextInt(42);  // Noncompliant[[sc=19;ec=31;secondary=11,25,27,29,31,33]]{{Replace randomly generated values with a fixed ones.}}
+    UUID userID = UUID.randomUUID(); // Noncompliant[[sc=19;ec=36;secondary=12,26,28,30,32,34]]{{Replace randomly generated values with a fixed ones.}}
+
+    MyRandom myRandom = new MyRandom(); // Compliant
   }
 
   @Test
   public void notRandomizedTest() {
-    int userAge = 31; //Compliant
+    int userAge = 31; // Compliant
     UUID userID = UUID.fromString("00000000-000-0000-0000-000000000001"); //Compliant
   }
 
+  @Test
   public void secondaryLocations() {
     int age1 = new Random().nextInt(42);
     UUID u1 = UUID.randomUUID();
@@ -29,6 +32,9 @@ public class RandomizedTestDataCheck {
     UUID u4 = UUID.randomUUID();
     int age5 = new Random().nextInt(42);
     UUID u5 = UUID.randomUUID();
+  }
+
+  class MyRandom {
   }
 
 }
